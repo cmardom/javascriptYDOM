@@ -20,14 +20,40 @@ function createDivWithText(text){
     div.classList.add('col');
     return div;
 }
+
+function checkIfNumber(number){
+    function repeatNumber(promptMessage){
+        return number = prompt(promptMessage);
+    }
+    control = true;
+    do {
+
+        if (number.length == 0) {
+            number = repeatNumber('No has introducido nada');
+            continue;
+        }
+
+        number = parseInt(number);
+
+        if (isNaN(number)) {
+            number = repeatNumber('No es un numero');
+            continue;
+        }
+        control = false;
+    } while (control);
+
+    return number;
+}
 function ejercicio1() {
     contenedor.innerHTML = '';
 
     const entrada1 = prompt('Introduce un número');
-    contenedor.append(createDivWithText(entrada1));
+    contenedor.append(createDivWithText(
+        checkIfNumber(entrada1)));
 
     const entrada2 = prompt('Introduce otro número');
-    contenedor.append(createDivWithText(entrada2));
+    contenedor.append(createDivWithText(
+        checkIfNumber(entrada2)));
 
     const resultado = entrada1 > entrada2 ?
         "El primer número es mayor" : entrada1 == entrada2 ?
@@ -43,7 +69,3 @@ function ejercicio1() {
     resultDiv.append(img);
     contenedor.append(resultDiv);
 }
-
-/**
- * Ejercicio 2
- */
