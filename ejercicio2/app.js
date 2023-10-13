@@ -49,7 +49,6 @@ function checkIfNumber(number){
 
         control = false;
     } while (control);
-    console.log('nunmber comprobado=' + number);
 
     return number;
 }
