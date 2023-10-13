@@ -1,5 +1,8 @@
-
-
+/**
+ * Ejercicio 3
+ *
+ */
+document.addEventListener("DOMContentLoaded", function () {
     let listaAnimales = ["https://okdiario.com/img/2020/02/09/jeff-griffith-zqypm8i60f8-unsplash1.jpg",
         "https://hospitalveterinariodonostia.com/wp-content/uploads/2018/12/6-lugares-donde-puedes-ver-animales-exoticos-6.jpg",
         "https://www.telemundo.com/sites/nbcutelemundo/files/styles/fit-760w/public/images/article/cover/2018/04/19/tigre-caminando.jpg?ramen_itok=iqwQftIcTf",
@@ -28,26 +31,37 @@
         const imagenClicada = evento.target;
         const imagenSrc = imagenClicada.src;
 
-        // Add the image source to the second array
+        // se crea elemento img
+        const img2 = document.createElement("img");
+        img2.src = imagenSrc;
+        img2.style.maxWidth = "150px";
+        img2.style.maxHeight = "250px";
+        array2.appendChild(img2);
+
+        // se anade al segundo array
         animalesBorrados.push(imagenSrc);
 
-        // Remove the image from array1 (original array)
+        //se borra del primer array
         const index = listaAnimales.indexOf(imagenSrc);
         if (index > -1) {
             listaAnimales.splice(index, 1);
         }
 
-        // Remove the image from the DOM
+        // se borra del dom
         imagenClicada.remove();
 
-        // Create a div to display the removed image
+        // se crea div para mostrar imagen borrada
         const imagenBorradaDiv = document.createElement("div");
         imagenBorradaDiv.textContent = `Borrada: ${imagenSrc}`;
-        imagenesBorradas.appendChild(imagenBorradaDiv);
-
         console.log(`Borrada: ${imagenSrc}`);
 
+        imagenesBorradas.appendChild(imagenBorradaDiv);
+
+
+
     }
+
+});
 
 
 
