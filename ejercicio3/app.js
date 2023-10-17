@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const array1 = document.getElementById('array1');
     const array2 = document.getElementById('array2');
     const imagenesBorradas = document.getElementById('imagenesBorradas');
-
+//prueba
     for (const imageUrl of listaAnimales) {
         const img = document.createElement("img");
         img.src = imageUrl;
